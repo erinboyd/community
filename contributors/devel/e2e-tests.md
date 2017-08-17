@@ -81,7 +81,7 @@ changing the --provider flag value to something other than "gce").
 You can quickly recompile the e2e testing framework via `go install ./test/e2e`.
 This will not do anything besides allow you to verify that the go code compiles.
 If you want to run your e2e testing framework without re-provisioning the e2e setup,
-you can do so via `make WHAT=test/e2e/e2e.test`.
+you can do so via `make WHAT=test/e2e/e2e.test`, and then re-running the ginkgo tests.
 
 To build Kubernetes, up a cluster, run tests, and tear everything down, use:
 
@@ -101,7 +101,7 @@ go run hack/e2e.go -- -v --up
 # Run all tests
 go run hack/e2e.go -- -v --test
 
-# Run tests matching the regex "\[Feature:Performance\]"
+# Run tests matching the regex "\[Feature:Performance\]" against a local cluster
 # Specify "--provider=local" flag when running the tests locally
 go run hack/e2e.go -- -v --test --test_args="--ginkgo.focus=\[Feature:Performance\]" --provider=local
 
